@@ -139,7 +139,12 @@ function imgui.OnDrawFrame() -- Вывод ImGui
 end -- Конец функции
 
 function sampev.onSendChat(msg) -- Получаем сообщение чата
-    return {u8:decode(text_accent.v) .. msg} -- Возвращаем сообщение чата + акцент
+	if msg == 'q' then 
+		return
+	end
+	if accent.v then
+		return {u8:decode(text_accent.v)  .. msg} -- Возвращаем сообщение чата + акцент
+	end
 end -- Конец функции
 
 function main() -- Начало основной функции
